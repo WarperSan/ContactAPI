@@ -167,7 +167,7 @@ async function renderDeleteContactForm(id) {
                 <div class="contactContainer">
                     <div class="contactLayout">
                         <div class="bookmarkLayout">
-                    <img class="bookmarkIcon" src="${bookmark.Url}/favicon.ico" alt="${bookmark.Title}" />
+                    <img class="bookmarkIcon" src="https://www.google.com/s2/favicons?sz=32&domain_url=${bookmark.Url}" alt="${bookmark.Title}" />
                     <span><b>${bookmark.Title}</b></span>
                 </div>
                 <span class="bookmarkCategory">${bookmark.Category}</span>
@@ -215,7 +215,7 @@ function renderContactForm(contact = null) {
     $("#actionTitle").text(create ? "Création" : "Modification");
     $("#content").append(`
         <form class="form" id="contactForm">
-            <img id="Icon" src="${contact.Url}/favicon.ico" alt="" style="width: 3em; height: 3em;"/>
+            <img id="Icon" src="https://www.google.com/s2/favicons?sz=32&domain_url=${contact.Url}" alt="" style="width: 3em; height: 3em;"/>
             <br><br>
         
             <input type="hidden" name="Id" value="${contact.Id}"/>
@@ -260,7 +260,7 @@ function renderContactForm(contact = null) {
     `);
     $("#Url").keyup(function ()
     {
-        $("#Icon").attr("src", $(this).val() + "/favicon.ico");
+        $("#Icon").attr("src", "https://www.google.com/s2/favicons?sz=32&domain_url=" + $(this).val());
     });
     $("#Icon").on("error", function () {
         $(this).attr("src", "../images/bookmark-logo.png");
@@ -300,7 +300,7 @@ function renderBookmark(bookmark) {
         <div class="contactContainer noselect">
             <div class="contactLayout">
                 <div class="bookmarkLayout">
-                    <img class="bookmarkIcon" src="${bookmark.Url}/favicon.ico" alt="${bookmark.Title}" />
+                    <img class="bookmarkIcon" src="https://www.google.com/s2/favicons?sz=32&domain_url=${bookmark.Url}" alt="${bookmark.Title}" />
                     <span><b>${bookmark.Title}</b></span>
                 </div>
                 <span class="bookmarkCategory">${bookmark.Category}</span>
