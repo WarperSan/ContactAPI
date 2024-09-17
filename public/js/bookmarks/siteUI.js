@@ -212,17 +212,10 @@ function renderContactForm(contact = null) {
     if (create)
         contact = newContact();
 
-    let icon = contact.Url;
-
-    if (icon === "")
-        icon = "../images/bookmark-logo.png";
-    else
-        icon += "/favicon.ico";
-
     $("#actionTitle").text(create ? "Création" : "Modification");
     $("#content").append(`
         <form class="form" id="contactForm">
-            <img src="${icon}" alt="" style="width: 3em; height: 3em;"/>
+            <img id="Icon" src="${contact.Url}/favicon.ico" alt="" style="width: 3em; height: 3em;"/>
             <br><br>
         
             <input type="hidden" name="Id" value="${contact.Id}"/>
@@ -265,6 +258,13 @@ function renderContactForm(contact = null) {
             <input type="button" value="Annuler" id="cancel" class="btn btn-secondary">
         </form>
     `);
+    $("#Url").keyup(function ()
+    {
+        $("#Icon").attr("src", $(this).val() + "/favicon.ico");
+    });
+    $("#Icon").on("error", function () {
+        $(this).attr("src", "../images/bookmark-logo.png");
+    })
     initFormValidation();
     $('#contactForm').on("submit", async function (event) {
         event.preventDefault();

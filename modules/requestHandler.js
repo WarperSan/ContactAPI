@@ -27,6 +27,8 @@ const handleRequest = function (req, res)
         }
     }
 
+    res.writeHead(404);
+    res.end("Resource not found");
     return Promise.reject();
 };
 
